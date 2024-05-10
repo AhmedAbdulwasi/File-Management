@@ -13,14 +13,21 @@ class FileManager:
 
 
     error = ""
-    def rename(self,dir):
+    def rename(self,old,new):
 
-        if os.path.exists(dir):
-            return True
-        else:
+        oldold = os.path.abspath(old)
+
+        if not os.path.exists(oldold):
             self.error = "Directory Does Not Exist"
             return False
 
+        try:
+            # Rename the file or directory
+            os.rename(oldold, new)
+            return True
+        except FileNotFoundError:
+            self.error = "File Not Found"
+            return False
 
     def folders(self,dir):
 
@@ -34,6 +41,7 @@ class FileManager:
 
         if not os.path.exists(dir):
             os.makedirs(dir)
+            return True
         else:
             self.error = "Directory Does Exist"
             return False
@@ -100,8 +108,9 @@ if __name__ == "__main__":
 
 
         if action == "RENAME":
-            directory = input("Enter Directory: ")
-            if manager.rename(directory):
+            old = input("Enter Old Name: ")
+            new = input("Enter New Name: ")
+            if manager.rename(old,new):
                 print("")
                 print("Success!")
             else:
