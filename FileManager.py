@@ -22,7 +22,7 @@ class FileManager:
             return False
 
         try:
-            # Rename the file or directory
+            
             os.rename(oldold, new)
             return True
         except FileNotFoundError:
@@ -30,7 +30,7 @@ class FileManager:
             return False
 
     def folders(self,dir):
-
+        # Working on it soon...
         if os.path.exists(dir):
             return True
         else:
