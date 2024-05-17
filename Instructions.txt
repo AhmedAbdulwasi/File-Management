@@ -1,0 +1,17 @@
+HOW TO:
+
+
+
+1) RENAME: Enter directory + file (E.x. Users/Desktop/OldName.txt to Users/Desktop/NewName.txt)
+
+2) FOLDERS: Enter directory
+
+3) CREATE: Enter Directory, File or folder
+
+4) DELETE: Enter Directory + File or folder (E.x. Users/Desktop/Delete.txt)
+
+5) MOVE: Enter Directory to Directory
+
+6) LIST: Enter Directory
+
+7) Q to Quit
