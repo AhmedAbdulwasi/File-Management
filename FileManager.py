@@ -1,6 +1,6 @@
 # File Management in Object-Oriented Programming using Python
-# I actually loved Java, or atleast OOP. So much so that I wanted to bring that interest to Python and see the similarities between Java and Python.
-# One problem about switching from Java back to Python is using ; or {} by accident. 
+# I loved Java, or at least OOP. So much so that I wanted to bring that interest to Python and see the similarities between Java and Python.
+# One problem about switching from Java back to Python is using; or {} by accident. 
 
 
 import os
@@ -9,7 +9,7 @@ import shutil
 
 class FileManager:
     def __init__(self):
-        self.error = "" # Something that will stick by me for the rest of my programming journey is handling errors. Initializing an error and changing it based on what the error says is such helpful tool to remember. I gotta thank my Prof for introducing me to Error Handeling.
+        self.error = "" 
 
 
     error = ""
@@ -213,3 +213,5 @@ if __name__ == "__main__":
 
         else:
             continue
+
+# THE END
