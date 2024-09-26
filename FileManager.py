@@ -29,30 +29,27 @@ class FileManager:
             return False
 
     def folders(self,dir):
-
+        # Hashmap (much cleaner)
+        FILE_TYPE_MAP = {
+            '.txt': 'Texts',
+            '.png': 'Images',
+            '.jpg': 'Images',
+            '.jpeg': 'Images',
+            '.pdf': 'Documents',
+            '.docx': 'Documents',
+            '.mov': 'Videos',
+            '.mp4': 'Videos',
+            '.wav': 'Videos',
+            '.mp3': 'Videos'
+        }
         if os.path.exists(dir):
             with os.scandir(dir) as entries:
                 for entry in entries:
-                    if (entry.name.endswith(".txt")):
-                        new_dir = os.path.join(dir, "Texts")
-                        os.makedirs(new_dir, exist_ok=True)
-                        shutil.move(entry.path, new_dir)
-                    elif (entry.name.endswith(".png") or entry.name.endswith(".jpg") or entry.name.endswith(".jpeg")):
-                        new_dir = os.path.join(dir, "Images")
-                        os.makedirs(new_dir, exist_ok=True)
-                        shutil.move(entry.path, new_dir)
-                    elif (entry.name.endswith(".pdf") or entry.name.endswith(".docx")):
-                        new_dir = os.path.join(dir, "Documents")
-                        os.makedirs(new_dir, exist_ok=True)
-                        shutil.move(entry.path, new_dir)
-                    elif (entry.name.endswith(".mov") or entry.name.endswith(".mp4") or entry.name.endswith(".wav") or entry.name.endswith(".mp3")):
-                        new_dir = os.path.join(dir, "Videos")
-                        os.makedirs(new_dir, exist_ok=True)
-                        shutil.move(entry.path, new_dir)
-                    else:
-                        new_dir = os.path.join(dir, "Other")
-                        os.makedirs(new_dir, exist_ok=True)
-                        shutil.move(entry.path, new_dir)
+                    _, ext = os.path.splitext(entry.name)
+                    folder_name = FILE_TYPE_MAP.get(ext.lower(), 'Other')
+                    new_dir = os.path.join(dir, folder_name)
+                    os.makedirs(new_dir, exist_ok=True)
+                    shutil.move(entry.path, new_dir)
                 return True
         else:
             self.error = "Directory Does Not Exist"
