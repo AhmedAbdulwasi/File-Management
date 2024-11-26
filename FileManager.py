@@ -159,7 +159,7 @@ if __name__ == "__main__":
             directory = input("Enter Directory (Where?): ")
             file = input("Enter File/Folder: ")
             bol = input("Create a Folder (Y/N)? ")
-            if bol.upper() == "Y" or bol.upper == "N" or bol.upper() == "YES" or bol.upper() == "NO":
+            if bol.upper() == "Y" or bol.upper() == "YES":
                 if manager.create(directory,file,True):
                     print("")
                     print("Success!")
